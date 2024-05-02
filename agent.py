@@ -61,7 +61,7 @@ class Agent:
         return AgentExecutor.from_agent_and_tools(agent=custom_agent,    # Sets the system to use openai functions
                                                   tools=tools,                   # Sets the tools visible to the LLM
                                                   memory=memory,
-                                                  return_intermediate_steps=True,     # Get a list of traces of the trajectory of the chain
+                                                  return_intermediate_steps=False,     # Get a list of traces of the trajectory of the chain
                                                 #   max_execution_time=1000 # The maximum amount of wall clock time to spend in the execution loop
                                                   max_iterations=3,          # Sets the number of intermediate steps
                                                   early_stopping_method="force",   # Applies final pass to generate an output if max iterations is reached
