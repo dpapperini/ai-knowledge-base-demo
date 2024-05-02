@@ -7,9 +7,9 @@ from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from import_service import import_web_scrape_data, import_notion_data
-from models.imported_pages import ImportedPages
-from models.imported_urls import ImportedUrls
+# from import_service import import_web_scrape_data, import_notion_data
+# from models.imported_pages import ImportedPages
+# from models.imported_urls import ImportedUrls
 from models.question import Question
 from models.session import Session
 from query_service import QueryService
@@ -51,17 +51,17 @@ app.add_middleware(
 )
 
 
-@app.post("/load-notion-docs")
-def load_notion_documents(imported_pages: ImportedPages):
-    print(f"Loading the following notion docs {imported_pages}")
-    import_notion_data(imported_pages.page_ids)
-    return {"status": "Notion Docs Loaded"}
+# @app.post("/load-notion-docs")
+# def load_notion_documents(imported_pages: ImportedPages):
+#     print(f"Loading the following notion docs {imported_pages}")
+#     import_notion_data(imported_pages.page_ids)
+#     return {"status": "Notion Docs Loaded"}
 
 
-@app.post("/load-website-docs")
-def load_web_scrape_documents(website: ImportedUrls):
-    print(f"Loading following web scraped docs {website.page_urls}")
-    import_web_scrape_data(website.page_urls)
+# @app.post("/load-website-docs")
+# def load_web_scrape_documents(website: ImportedUrls):
+#     print(f"Loading following web scraped docs {website.page_urls}")
+#     import_web_scrape_data(website.page_urls)
 
 
 @app.get("/")
